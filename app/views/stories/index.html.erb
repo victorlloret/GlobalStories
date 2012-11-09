@@ -1,0 +1,34 @@
+<h3>Stories</h3>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Intro</th>
+    <th>Genre</th>
+    <th>Writers</th>
+    <th>Created by</th>
+    <th>Creation date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stories.each do |story| %>
+  <tr>
+    <td><%= story.title %></td>
+    <td><%= story.intro %></td>
+    <td><%= story.genre %></td>
+    <td><%= story.number_of_writers %></td>
+    <td><%= story.user_id %></td>
+    <td><%= story.creation_date %></td>
+    <td><%= link_to 'Show', story %></td>
+    <% if user_signed_in? %>
+        <td><%= link_to 'Edit', edit_story_path(story) %></td>
+        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'New Story', new_story_path %>

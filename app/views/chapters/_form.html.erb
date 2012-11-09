@@ -1,0 +1,41 @@
+<%= form_for([@story,@chapter]) do |f| %>
+  <% if @chapter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
+
+      <ul>
+      <% @chapter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <b>Story:</b>
+    <%= @story.id %>
+  </p>
+   <p>
+    <b>Story's Title:</b>
+    <%= @story.title %>
+  </p>
+  <div class="field">
+    <%= f.label :subtitle %><br />
+    <%= f.text_field :subtitle %>
+  </div>
+  <div class="field">
+    <%= f.label :main_chapter %><br />
+    <%= f.text_area :main_chapter %>
+  </div>
+ <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :creation_date %><br />
+    <%= f.datetime_select :creation_date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

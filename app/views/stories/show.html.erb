@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @story.title %>
+</p>
+
+<p>
+  <b>Intro:</b>
+  <%= @story.intro %>
+</p>
+
+<p>
+  <b>Genre:</b>
+  <%= @story.genre %>
+</p>
+
+<p>
+  <b>Number of writers:</b>
+  <%= @story.number_of_writers %>
+</p>
+
+<p>
+  <b>Creation date:</b>
+  <%= @story.creation_date %>
+</p>
+
+
+<b>Main story</b>
+<br/>
+    <%= @story.main_story %>
+</br>
+</br>
+<% if user_signed_in? %>
+  <% #link_to "favorite",   favorite_story_path(@recipe, type: "favorite"), method: "get" %>
+  <% #link_to "unfavorite", favorite_story_path(@recipe, type: "unfavorite"), method: "get" %>
+  
+  <b>Do you want to collab? write a new chapter</b>
+  <br/>
+  <%= link_to 'New Chapter', new_story_chapter_path(@story) %>
+  <br/>
+  </br>
+<% end %>
+<b>Take a look at the done chapters</b>
+<br/>
+<%= link_to 'Chapters', story_chapters_path(@story) %>
+<br/>
+</br>
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_story_path(@story) %> |
+  <%= link_to 'Back', stories_path %>
+<% end %>

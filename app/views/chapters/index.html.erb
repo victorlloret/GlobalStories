@@ -1,0 +1,34 @@
+<h3>Written Chapters</h3>
+<table>
+  <tr>
+    <th>Subtitle</th>
+    <th>Main chapter</th>
+    <th>Story</th>
+    <th>Created by</th>
+    <th>Creation date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @chapters.each do |chapter| %>
+  <tr>
+    <% if chapter.story_id == @story.id %>
+        <td><%= chapter.subtitle %></td>
+        <td><%= chapter.main_chapter %></td>
+        <td><%= chapter.story_id %></td>
+        <td><%= chapter.user_id %></td>
+        <td><%= chapter.creation_date %></td>
+        <td><%= link_to 'Show', story_chapter_path(@story,chapter) %></td>
+        <% if user_signed_in? %>
+            <td><%= link_to 'Edit', edit_story_chapter_path(@story,chapter) %></td>
+            <td><%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+    <%end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if user_signed_in? %>
+    <%= link_to 'New Chapter', new_story_chapter_path(@story) %>
+<% end %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  intro: MyText
+  main_story: MyText
+  genre: MyString
+  number_of_writers: 1
+  created_by: 1
+  creation_date: 2012-11-07 13:10:21
+
+two:
+  title: MyString
+  intro: MyText
+  main_story: MyText
+  genre: MyString
+  number_of_writers: 1
+  created_by: 1
+  creation_date: 2012-11-07 13:10:21
